@@ -14,6 +14,17 @@ namespace Business.Concrete
         {
             _CarDal = carDal;
         }
+        public void Add(Car entity)
+        {
+            if (entity.Description.Length > 2 && entity.DailyPrice > 0)
+            {
+                _CarDal.Add(entity);
+            }
+            else
+            {
+                Console.WriteLine("Geçersiz giriş");
+            }
+        }
 
         public List<Car> GetAll()
         {

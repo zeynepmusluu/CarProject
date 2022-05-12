@@ -15,7 +15,7 @@ namespace DataAccess.Abstract
         //filtreleri tek satırda yaptırıyo yani filtre yapmamızı sağlıyor. çok satanlara gçöre vb. gibi
 
         List<T> GetAll(Expression<Func<T, bool>> filter = null);
-        T Get(); 
+        T Get(Expression<Func<T, bool>> filter); 
         void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
