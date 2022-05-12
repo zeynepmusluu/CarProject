@@ -22,7 +22,14 @@ namespace Business.Concrete
             }
             else
             {
-                Console.WriteLine("Geçersiz giriş");
+                if (entity.Description.Length < 2)
+                {
+                    Console.WriteLine("Araba ismi minimum 2 karakter olmalıdır.");
+                }
+                else
+                {
+                    Console.WriteLine("Araba günlük fiyatı 0 'dan büyük olmalıdır.");
+                }
             }
         }
 
