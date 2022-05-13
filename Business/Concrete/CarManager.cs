@@ -1,6 +1,8 @@
-﻿using Business.Abstract;
+﻿
+using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,13 +18,13 @@ namespace Business.Concrete
         }
         public void Add(Car entity)
         {
-            if (entity.Description.Length > 2 && entity.DailyPrice > 0)
+            if (entity.CarName.Length > 2 && entity.DailyPrice > 0)
             {
                 _CarDal.Add(entity);
             }
             else
             {
-                if (entity.Description.Length < 2)
+                if (entity.CarName.Length < 2)
                 {
                     Console.WriteLine("Araba ismi minimum 2 karakter olmalıdır.");
                 }
@@ -43,9 +45,19 @@ namespace Business.Concrete
             return _CarDal.GetAll(c=>c.BrandId == id);
         }
 
+        public List<Car> GetByColorId(int colorId)
+        {
+            return _CarDal.GetAll(clr => clr.ColorId == colorId);
+        }
+
         public List<Car> GetByDailyPrice(decimal min, decimal max)
         {
             return _CarDal.GetAll(c=>c.DailyPrice >= min && c.DailyPrice <= max );
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _CarDal.GetCarDetails();
         }
 
         public List<Car> GetCarsByBrandId(int id)

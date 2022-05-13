@@ -1,6 +1,7 @@
 ﻿
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,11 @@ namespace DataAccess.Concrete.InMemory
             return _carList.SingleOrDefault(c => c.CarId == carId);
         }
 
+        public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Car car)
         {
             Car updatedCar = _carList.SingleOrDefault(c => c.CarId == car.CarId);
@@ -62,6 +68,7 @@ namespace DataAccess.Concrete.InMemory
             updatedCar.ColorId = car.ColorId;
             updatedCar.DailyPrice = car.DailyPrice;
             updatedCar.Description = car.Description;
+            updatedCar.CarName = car.CarName;
         }
     }
 }

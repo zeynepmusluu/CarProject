@@ -1,16 +1,15 @@
-﻿using Entities.Abstract;
-using Entities.Concrete;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {
     //generic constraint (kısıt)
     //class= referance type
     //T ya Ientity olablir yada oradan implement edilen olablir.
-     public interface IEntityRepository<T> where T:class,IEntity,new()
+     public interface IEntityRepository<T> where T : class,IEntity,new()
     {
         //filtreleri tek satırda yaptırıyo yani filtre yapmamızı sağlıyor. çok satanlara gçöre vb. gibi
 
