@@ -20,3 +20,4 @@ namespace Core.DataAccess
         void Update(T entity);
     }
 }
+
