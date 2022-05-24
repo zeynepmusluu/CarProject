@@ -32,7 +32,7 @@ namespace Business.Concrete
         public IResult Update(User user)
         {
             _userDal.Update(user);
-            return new SuccessResult(Messages.UserDeleted);
+            return new SuccessResult(Messages.UserUpdated);
         }
 
         public IDataResult<List<User>> GetAll()
@@ -40,9 +40,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll(),Messages.UsersListed);
         }
 
-        public IDataResult<User> GetById(int userId)
+        public IDataResult<User> GetById(int id)
         {
-            return new SuccessDataResult<User>(_userDal.Get(u=>u.UserId==userId),Messages.UserListed);
+            return new SuccessDataResult<User>(_userDal.Get(u=>u.UserId==id),Messages.UserListed);
         }
 
        
