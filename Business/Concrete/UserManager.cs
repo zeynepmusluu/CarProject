@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using Business.Constants;
+using Business.Constants.Messages;
 using Business.ValidationRules.FluentValidaton;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
@@ -23,28 +23,28 @@ namespace Business.Concrete
         public IResult Add(User user)
         {
             _userDal.Add(user);
-            return new SuccessResult(Messages.UserAdded);
+            return new SuccessResult(UserMessages.UserAdded);
         }
 
         public IResult Delete(User user)
         {
             _userDal.Delete(user);
-            return new SuccessResult(Messages.UserDeleted);
+            return new SuccessResult(UserMessages.UserDeleted);
         }
         public IResult Update(User user)
         {
             _userDal.Update(user);
-            return new SuccessResult(Messages.UserUpdated);
+            return new SuccessResult(UserMessages.UserUpdated);
         }
 
         public IDataResult<List<User>> GetAll()
         {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll(),Messages.UsersListed);
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(),UserMessages.UsersListed);
         }
 
         public IDataResult<User> GetById(int id)
         {
-            return new SuccessDataResult<User>(_userDal.Get(u=>u.UserId==id),Messages.UserListed);
+            return new SuccessDataResult<User>(_userDal.Get(u=>u.UserId==id),UserMessages.UserListed);
         }
 
        

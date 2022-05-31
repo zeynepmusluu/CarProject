@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core.Entities
+namespace Core.Exceptions.Abstract
 {
-    public interface IEntity
+    interface ICustomException
     {
-        
     }
 }
